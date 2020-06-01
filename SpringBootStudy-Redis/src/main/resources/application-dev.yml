@@ -1,5 +1,5 @@
 spring:
   profiles: dev
   redis:
-    host:
-    port:
+    host: 41.105.71.238
+    port: 6379

@@ -16,6 +16,7 @@ public class RedisSimpleTest {
 
     @Test
     public void test(){
-        redisTemplate.opsForValue().get("test");
+        Object test = redisTemplate.opsForValue().get("test");
+        System.out.println("redis查询结果：" + test);
     }
 }
