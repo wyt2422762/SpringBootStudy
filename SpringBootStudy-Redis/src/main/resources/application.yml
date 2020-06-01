@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: SpringBootStudy-Redis
+  profiles:
+    active: dev
+  http:
+    encoding: UTF-8
+
+server:
+  port: 8080
+  servlet:
+    # 项目contextPath
+    context-path: /springBootStudy/redis
+
+
+
