@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  servlet:
+    # 项目contextPath
+    context-path: /springBootStudy-activiti
+
+spring:
+  application:
+    name: SpringBootStudy-activiti
+  profiles:
+    active: dev
+  http:
+    encoding: UTF-8
+  # 模板引擎
+  thymeleaf:
+    mode: HTML
+    encoding: utf-8
+    # 禁用缓存
+    cache: false
+
+mybatis:
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+
+
+

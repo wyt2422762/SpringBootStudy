@@ -1,0 +1,30 @@
+spring:
+  profiles: dev
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: true
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.100.178:3106/activiti_test?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: CVAS
+    password: P@$$W0RD
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+      auto-commit: true
+      idle-timeout: 5000
+      connection-timeout: 5000
+      connection-test-query: select 1
+
+  activiti:
+    database-schema-update: true
+    #表示使用历史表，如果不配置，则工程启动后可以检查数据库，只建立了17张表，历史表没有建立
+    db-history-used: true
+    #记录历史等级 可配置的历史级别有none, activity, audit, full
+    history-level: full
+    #如果设置false， 则resources/processes下面的bpmn文件不会自动部署
+    check-process-definitions: true
+    process-definition-location-prefix: classpath:/processes/
+

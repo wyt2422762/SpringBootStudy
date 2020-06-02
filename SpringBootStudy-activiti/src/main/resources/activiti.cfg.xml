@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+        <property name="databaseType" value="mysql"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://192.168.100.178:3106/activiti_test"></property>
+        <property name="jdbcDriver" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="jdbcUsername" value="CVAS"></property>
+        <property name="jdbcPassword" value="P@$$W0RD"></property>
+        <!--是否生成表结构-->
+        <property name="databaseSchemaUpdate" value="true"/>
+    </bean>
+</beans>
