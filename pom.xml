@@ -5,6 +5,7 @@
     <modules>
         <module>SpringBootStudy-Redis</module>
         <module>SpringBootStudy-activiti</module>
+        <module>SpringBootstudy-netty</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
