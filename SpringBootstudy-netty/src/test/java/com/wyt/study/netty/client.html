@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket客户端</title>
+</head>
+<body>
+消息内容：<input type="text" id="msg" />
+<br/>
+<input type="button" value="发送" onclick="sendMsg();">
+<br/>
+<p style="border: 1px solid black" id="chat"></p>
+
+
+<script>
+    var sc = null;
+    if(window.WebSocket){
+        sc = new WebSocket("ws://127.0.0.1:9090/ws");
+        sc.onopen = function() {
+            console.log("建立连接");
+        }
+        sc.onclose = function () {
+            console.log("关闭连接");
+        }
+        sc.onerror = function(){
+            console.log("出错啦");
+        }
+        sc.onmessage = function(e) {
+            debugger;
+            console.log("收到消息：" + e.data);
+            let chat = document.getElementById("chat");
+            chat.innerHTML += e.data + "<br/>";
+        }
+
+    }else{
+        alert("浏览器不支持websocket!");
+    }
+
+    //发送消息方法
+    function sendMsg() {
+        let message = document.getElementById("msg").value;
+        sc.send(message);
+    }
+</script>
+</body>
+</html>
