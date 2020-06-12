@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <contextName>SpringBootStudy-netty</contextName>
+    <contextName>SpringBootStudy-activiti</contextName>
 
     <!-- 日志存放路径 -->
     <property name="log.path" value="/logs/SpringBootStudy" />
     <!-- 日志输出格式 -->
-    <property name="log.pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n" />
+    <property name="log.pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger - [%method,%line] - %msg%n" />
 
     <!-- 控制台输出 -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -63,16 +63,11 @@
     <!-- Spring日志级别控制  -->
     <logger name="org.springframework" level="warn" />
 
+    <!--系统操作日志-->
     <root level="debug">
         <appender-ref ref="console" />
-    </root>
-
-    <!--系统操作日志-->
-    <root level="info">
         <appender-ref ref="file_info" />
         <appender-ref ref="file_error" />
     </root>
 
-    <!-- sql日志 -->
-    <logger name="com.cnki.psgl.manager.mapper" level="DEBUG"/>
 </configuration>
