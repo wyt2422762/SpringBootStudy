@@ -5,10 +5,20 @@ import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
+@Component
+@Slf4j
 public class SimpleNettyServerDemo {
 
-    public static void main(String[] args) {
+    @PostConstruct
+    public void startServer(){
+
+        log.debug("netty服务端启动......");
+
         //创建netty工作线程组
         NioEventLoopGroup mainGroup = new NioEventLoopGroup(); //主线程池
         NioEventLoopGroup subGroup = new NioEventLoopGroup(); //从线程池
@@ -27,7 +37,7 @@ public class SimpleNettyServerDemo {
 
             //绑定端口，以同步的方式启动服务
             ChannelFuture channelFuture = bootstrap.bind(9090).sync();
-            //这步不太了解
+            //等待子线程结束，关闭程序
             channelFuture.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -35,8 +45,11 @@ public class SimpleNettyServerDemo {
             subGroup.shutdownGracefully();
             mainGroup.shutdownGracefully();
         }
+    }
 
-
+    public static void main(String[] args) {
+        SimpleNettyServerDemo simpleNettyServerDemo = new SimpleNettyServerDemo();
+        simpleNettyServerDemo.startServer();
     }
 
 }
