@@ -6,6 +6,7 @@
         <module>SpringBootStudy-Redis</module>
         <module>SpringBootStudy-activiti</module>
         <module>SpringBootstudy-netty</module>
+        <module>SpringBootStudy-bean</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
