@@ -14,9 +14,16 @@ public class RedisSimpleTest {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @Autowired
+    RedisUtil redisUtil;
+
     @Test
     public void test(){
-        Object test = redisTemplate.opsForValue().get("test");
-        System.out.println("redis查询结果：" + test);
+        /*Object test = redisTemplate.opsForValue().get("test");
+        System.out.println("redis查询结果：" + test);*/
+
+        String o = redisUtil.rpoplpushB("list", "list2", 10).toString();
+
+        System.out.println(o);
     }
 }
