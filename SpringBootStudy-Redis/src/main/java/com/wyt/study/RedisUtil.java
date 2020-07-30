@@ -418,7 +418,7 @@ public class RedisUtil {
     /**
      * 移出并获取list的头部元素，如果list没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
      * @param key
-     * @param timeout 单位秒, 如果小于等于0会一直阻塞
+     * @param timeout 单位秒，必须大于0，如果等于0会一直阻塞
      * @return
      */
     public Object lpopB(String key, long timeout){
@@ -428,7 +428,7 @@ public class RedisUtil {
     /**
      * 移出并获取list的尾部元素，如果list没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
      * @param key
-     * @param timeout 单位秒, 如果小于等于0会一直阻塞
+     * @param timeout 单位秒，必须大于0，如果等于0会一直阻塞
      * @return
      */
     public Object rpopB(String key, long timeout){
@@ -449,7 +449,7 @@ public class RedisUtil {
      * 移除源list的最后一个元素，并将该元素添加到目标list并返回, 如果源list没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
      * @param sourcekey 源list key
      * @param destinationkey 目标list key
-     * @param timeout 单位秒, 如果小于等于0会一直阻塞
+     * @param timeout 单位秒，必须大于0，如果等于0会一直阻塞
      * @return 弹出并添加到目标list的元素的值
      */
     public Object rpoplpushB(String sourcekey, String destinationkey, long timeout){
