@@ -19,9 +19,9 @@ public class DemoReceiver {
      * @RabbitHandler 代表此方法为接受到消息后的处理方法
      */
     @RabbitHandler
-    public void recieved(String msg) {
+    public void recieve(String msg) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String timeStr = dtf.format(LocalDateTime.now());
-        System.out.printf("%s - [%s]接收消息: %s\n", timeStr, QUEUE_NAME, msg);
+        System.out.printf("%s - %s - [%s]接收消息: %s\n", this.getClass().getName(), timeStr, QUEUE_NAME, msg);
     }
 }

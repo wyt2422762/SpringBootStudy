@@ -19,7 +19,7 @@ public class DemoSender {
     public void sendMsg(String msg) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String timeStr = dtf.format(LocalDateTime.now());
-        System.out.printf("%s - [%s]发送消息: %s\n", timeStr, QUEUE_NAME, msg);
+        System.out.printf("%s - %s - [%s]发送消息: %s\n", this.getClass().getName(), timeStr, QUEUE_NAME, msg);
 
         /**
          * 参数1 routingKey 这里是队列名称
