@@ -7,6 +7,7 @@
         <module>SpringBootStudy-activiti</module>
         <module>SpringBootstudy-netty</module>
         <module>SpringBootStudy-bean</module>
+        <module>SpringBootStudy-RabbitMq</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
