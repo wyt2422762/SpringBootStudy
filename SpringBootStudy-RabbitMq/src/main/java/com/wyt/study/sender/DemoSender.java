@@ -2,6 +2,7 @@ package com.wyt.study.sender;
 
 
 import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +14,11 @@ import java.time.format.DateTimeFormatter;
 public class DemoSender {
     private final String QUEUE_NAME = "demoQueue";
 
+    /*@Autowired
+    private AmqpTemplate amqpTemplate;*/
+
     @Autowired
-    private AmqpTemplate amqpTemplate;
+    private RabbitTemplate rabbitTemplate;
 
     public void sendMsg(String msg) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -25,6 +29,7 @@ public class DemoSender {
          * 参数1 routingKey 这里是队列名称
          * 参数2 消息体
          */
-        amqpTemplate.convertAndSend(QUEUE_NAME, msg);
+        //amqpTemplate.convertAndSend(QUEUE_NAME, msg);
+        rabbitTemplate.convertAndSend(QUEUE_NAME, msg);
     }
 }

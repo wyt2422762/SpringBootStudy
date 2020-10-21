@@ -6,7 +6,7 @@ spring:
       enabled: true
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://47.105.71.238:3106/test?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    url: jdbc:mysql://192.168.100.178:3106/activiti_test?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
     username: CVAS
     password: P@$$W0RD
     type: com.zaxxer.hikari.HikariDataSource
